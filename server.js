@@ -90,6 +90,17 @@ function updatehandler(req,res){
     })
 }
 
+server.delete('/deletTASK:id',deletehandler)
+
+function deletehandler(req,res){
+    let sql= `DELETE FROM tasks WHERE id=$1`
+    let safevalue=[req.params.id]
+    client.query(sql,safevalue)
+    .then(()=>{
+        res.redirect('/seraches/mylist')
+    })
+}
+
 client.connect()
 .then(()=>{
     server.listen(PORT,()=> console.log(`lesten ${PORT}`))
