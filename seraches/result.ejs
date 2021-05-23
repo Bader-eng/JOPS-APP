@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <% jop.forEach(element => { %>
+            <div>
+                <li>
+                    <%=jop.title %> 
+                </li>
+                <li>
+                    <%=jop.url %> 
+                </li>
+                <li>
+                    <%=jop.company  %> 
+                </li>
+                <li>
+                    <%=jop.location%> 
+
+                </li>
+                <li>
+                    <%=jop.description%> 
+                    
+                </li>
+                <form method="POST" action="/jops">
+                    <input name="title" value="<%= jop.title %>" hidden>
+                    <input name="url" value="<%= jop.url %>" hidden>
+                    <input name="company" value="<%= jop.company %> " hidden>
+                    <input name="location" value="<%= jop.location %> " hidden>
+                    <input name="description" value="<%=jop.description%>" hidden>
+                    <button>add</button>
+                </form>
+            </div>
+         
+        <% }) %>
+    </section>
+</body>
+</html>
