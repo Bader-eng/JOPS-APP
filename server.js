@@ -60,7 +60,7 @@ function Jobs(data)
 
 server.post('/jops',addhandler)
 function addhandler(req,res){
-    let sql=`INSERT INTO tasks (title,company,location,url,description) VALUES (1$,2$,3$,4$,5$) WHERE id=6$`
+    let sql=`INSERT INTO tasks (title,company,location,url,description) VALUES ($1,$2,$3,$4,$5) WHERE id=$6`
     let safevalue=[req.body.title,req.body.company,req.body.location,req.body.url,req.body.description]
     client.query(sql,safevalue)
     .then((value)=>{
