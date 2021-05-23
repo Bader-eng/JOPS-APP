@@ -40,7 +40,7 @@ server.post('/jop',(req,res)=>{
     let url = `https://jobs.github.com/positions.json?description=${name}&location=usa`
     superagent.get(url)
     .then((value)=>{
-    let data=req.body
+    let data=value.body
     let data1=data.map((val)=>{
         return new Jobs(val)
     })
